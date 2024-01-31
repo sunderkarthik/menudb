@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+    <title>Restaurant Detail</title>
+</head>
+
+<body>
+    <!-- Top Banner -->
+    <div class="container-fluid bg-dark text-white p-3">
+        <div class="row">
+            <!-- Left Side - Logo and Tagline -->
+            <div class="col-md-6">
+                <img src="your_logo.png" alt="Your Logo" width="50">
+                <p class="mt-2 mb-0"><em>Eat what is right for you</em></p>
+            </div>
+        
+            <!-- Right Side - Buttons -->
+            <div class="col-md-6 text-right">
+                <a href="/home"><button type="button" class="btn btn-light mr-2">Home</button></a>
+                <a href="/logout"><button type="button" class="btn btn-light mr-2">Logout</button></a>
+                <!-- You can replace the user icon below with an actual user icon or an image -->
+                <a href="/user/#{user_id}"><button type="button" class="btn btn-light"><i class="fas fa-user"></i></button></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <h2>Hi, Sunder</h2>
+        <h4>Based on your preferences, here are the matching restaurants</h4>
+        <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">Restaurant Name</th>
+            <th scope="col">Restaurant Logo</th>
+            <th scope="col">Matching Dishes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Row 1 -->
+            <tr>
+            <td>McDonald's</td>
+            <td><img src="restaurant1_logo.jpg" alt="Restaurant 1 Logo" width="50"></td>
+            <td>10</td>
+            </tr>
+
+            <!-- Row 2 -->
+            <tr>
+            <td>Chipotle</td>
+            <td><img src="restaurant2_logo.png" alt="Restaurant 2 Logo" width="50"></td>
+            <td>8</td>
+            </tr>
+
+            <!-- Row 3 -->
+            <tr>
+            <td>Burger King</td>
+            <td><img src="restaurant3_logo.svg" alt="Restaurant 3 Logo" width="50"></td>
+            <td>15</td>
+            </tr>
+        </tbody>
+        </table>
+    </div>
+
+</body>
+
+</html>

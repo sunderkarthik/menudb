@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Sighting</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="shortcut icon" href="https://s3.amazonaws.com/django-blog/ico/favicon_v2.ico">
+</head>
+<body>
+    <!-- Top Banner -->
+    <div class="container-fluid bg-dark text-white p-3">
+        <div class="row">
+            <!-- Left Side - Logo and Tagline -->
+            <div class="col-md-6">
+                <img src="your_logo.png" alt="Your Logo" width="50">
+                <p class="mt-2 mb-0"><em>Eat what is right for you</em></p>
+            </div>
+        
+            <!-- Right Side - Buttons -->
+            <div class="col-md-6 text-right">
+                <a href="/home"><button type="button" class="btn btn-light mr-2">Home</button></a>
+                <a href="/logout"><button type="button" class="btn btn-light mr-2">Logout</button></a>
+                <!-- You can replace the user icon below with an actual user icon or an image -->
+                <a href="/user/#{user_id}"><button type="button" class="btn btn-light"><i class="fas fa-user"></i></button></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-8">
+                <h1>Create a new item</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-5">
+        <form action="/report" method="post">
+            <input type="hidden" name="id">
+            {% with messages = get_flashed_messages(category_filter=['register']) %}
+                {% if messages %}
+                <div class="alert alert-danger" role="alert">
+                    <strong>Alert!</strong>
+                        {% for message in messages %}
+                        <p>{{message}}</p>
+                        {% endfor %}
+                </div>
+                {% endif %}
+            {% endwith %}
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <label for="location" class="form-label"><strong>Item Name:</strong></label>
+                        <input type="text" class="form-control" name="location" placeholder="Enter the name of your item">
+                    </div>
+                    <div class="form-group">
+                        <label for="description" class="form-label"><strong>Ingredients:</strong></label>
+                        <textarea class="form-control" name="description" rows="3" placeholder="Enter all ingredients in your item. Separate ingredients with commas."></textarea>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <form action="upload.php" method="post" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="imageUpload">Choose an image:</label>
+                                <input type="file" class="form-control-file" id="imageUpload" name="imageUpload" accept="image/*">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Upload Image</button>
+                        </form>
+                    </div>
+                    <div class="form-group">
+                        <label for="preferences" class="form-label"><strong>Suitable for:</strong></label>
+                        <table class="table">
+                            <tbody>
+                                <!-- Row 1 -->
+                                <tr>
+                                <td>
+                                    <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="vegetarian" name="vegetarian" value="yes">
+                                    <label class="form-check-label" for="vegetarian">
+                                        Vegetarian
+                                    </label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="eggs" name="eggs" value="yes">
+                                    <label class="form-check-label" for="eggs">
+                                        Eggs
+                                    </label>
+                                    </div>
+                                </td>
+                                </tr>
+                    
+                                <!-- Row 2 -->
+                                <tr>
+                                <td>
+                                    <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="vegan" name="vegan" value="yes">
+                                    <label class="form-check-label" for="vegan">
+                                        Vegan
+                                    </label>
+                                    </div>
+                                </td>
+                                </tr>
+                    
+                                <!-- Row 3 -->
+                                <tr>
+                                <td>
+                                    <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="glutenFree" name="glutenFree" value="yes">
+                                    <label class="form-check-label" for="glutenFree">
+                                        Gluten Free
+                                    </label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="nutFree" name="nutFree" value="yes">
+                                    <label class="form-check-label" for="nutFree">
+                                        Nut Free
+                                    </label>
+                                    </div>
+                                </td>
+                                </tr>
+                    
+                                <!-- Row 4 -->
+                                <tr>
+                                <td>
+                                    <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="pescatarianFree" name="pescatarianFree" value="yes">
+                                    <label class="form-check-label" for="pescatarianFree">
+                                        Pescatarian Free
+                                    </label>
+                                    </div>
+                                </td>
+                                </tr>
+                    
+                                <!-- Row 5 -->
+                                <tr>
+                                <td>
+                                    <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="porkFree" name="porkFree" value="yes">
+                                    <label class="form-check-label" for="porkFree">
+                                        Pork Free
+                                    </label>
+                                    </div>
+                                </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <form action="/restaurant/#{restaurant_id}" method="post"><button class="btn btn-primary">Create Item</button></form>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

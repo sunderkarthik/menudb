@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+    <title>Restaurant Detail</title>
+</head>
+
+<body>
+
+    <!-- Top Banner -->
+    <div class="container-fluid bg-dark text-white p-3">
+        <div class="row">
+            <!-- Left Side - Logo and Tagline -->
+            <div class="col-md-6">
+                <img src="your_logo.png" alt="Your Logo" width="50">
+                <p class="mt-2 mb-0"><em>Eat what is right for you</em></p>
+            </div>
+        
+            <!-- Right Side - Buttons -->
+            <div class="col-md-6 text-right">
+                <a href="/home"><button type="button" class="btn btn-light mr-2">Home</button></a>
+                <a href="/logout"><button type="button" class="btn btn-light mr-2">Logout</button></a>
+                <!-- You can replace the user icon below with an actual user icon or an image -->
+                <a href="/user/#{user_id}"><button type="button" class="btn btn-light"><i class="fas fa-user"></i></button></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <!-- Restaurant Logo and Name -->
+        <div class="row">
+            <div class="col-md-6 d-flex">
+                <h1>Restaurant Name</h1>
+                <img src="restaurant_logo.jpg" alt="Restaurant Logo" width="100">
+            </div>
+            <div class="col-md-6 text-right">
+                <form action="/restaurant/#{restaurant_id}" method="post"><button class="btn btn-primary">Add Item</button></form>
+            </div>
+        </div>
+
+        <!-- Dishes Table -->
+        <table class="table mt-4">
+            <thead>
+                <tr>
+                <th scope="col">Dish Name</th>
+                <th scope="col">Dish Image</th>
+                <th scope="col">Dietary Preference</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Row 1 -->
+                <tr>
+                <td><a href="/restaurant/1/1">French Fries</td></a>
+                <td><img src="dish1_image.jpg" alt="Dish 1 Image" width="50"></td>
+                <td>Vegetarian</td>
+                </tr>
+
+                <!-- Row 2 -->
+                <tr>
+                <td>Dish 2</td>
+                <td><img src="dish2_image.jpg" alt="Dish 2 Image" width="50"></td>
+                <td>Non-Vegetarian</td>
+                </tr>
+
+                <!-- Row 3 -->
+                <tr>
+                <td>Dish 3</td>
+                <td><img src="dish3_image.jpg" alt="Dish 3 Image" width="50"></td>
+                <td>Vegetarian</td>
+                </tr>
+
+                <!-- Add more rows as needed -->
+
+            </tbody>
+        </table>
+    </div>
+
+</body>
+
+</html>
